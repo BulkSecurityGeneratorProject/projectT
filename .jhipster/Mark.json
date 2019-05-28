@@ -1,0 +1,38 @@
+{
+    "name": "Mark",
+    "fields": [
+        {
+            "fieldName": "x",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "y",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "board",
+            "otherEntityRelationshipName": "marks",
+            "relationshipName": "board",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "player",
+            "otherEntityRelationshipName": "marks",
+            "relationshipName": "player",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190528190048",
+    "entityTableName": "mark",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

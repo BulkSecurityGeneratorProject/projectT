@@ -1,0 +1,38 @@
+{
+    "name": "Player",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "type",
+            "fieldType": "PlayerType",
+            "fieldValues": "CROSS,CIRCLE"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "mark",
+            "otherEntityRelationshipName": "player",
+            "relationshipName": "marks"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "board",
+            "otherEntityRelationshipName": "player",
+            "relationshipName": "board",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190528190049",
+    "entityTableName": "player",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

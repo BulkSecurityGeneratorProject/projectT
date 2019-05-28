@@ -1,0 +1,36 @@
+{
+    "name": "Board",
+    "fields": [
+        {
+            "fieldName": "width",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "height",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "mark",
+            "otherEntityRelationshipName": "board",
+            "relationshipName": "marks"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "player",
+            "otherEntityRelationshipName": "board",
+            "relationshipName": "player"
+        }
+    ],
+    "changelogDate": "20190528190047",
+    "entityTableName": "board",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

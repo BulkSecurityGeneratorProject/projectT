@@ -1,0 +1,48 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-mark-heading">Create or edit a Mark</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!mark.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="mark.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_x">X</label>
+                    <input type="number" class="form-control" name="x" id="field_x"
+                        [(ngModel)]="mark.x" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_y">Y</label>
+                    <input type="number" class="form-control" name="y" id="field_y"
+                        [(ngModel)]="mark.y" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_board">Board</label>
+                    <select class="form-control" id="field_board" name="board" [(ngModel)]="mark.board" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="boardOption.id === mark.board?.id ? mark.board : boardOption" *ngFor="let boardOption of boards; trackBy: trackBoardById">{{boardOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_player">Player</label>
+                    <select class="form-control" id="field_player" name="player" [(ngModel)]="mark.player" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="playerOption.id === mark.player?.id ? mark.player : playerOption" *ngFor="let playerOption of players; trackBy: trackPlayerById">{{playerOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,43 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="mark">
+            <h2><span>Mark</span> {{mark.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>X</span></dt>
+                <dd>
+                    <span>{{mark.x}}</span>
+                </dd>
+                <dt><span>Y</span></dt>
+                <dd>
+                    <span>{{mark.y}}</span>
+                </dd>
+                <dt><span>Board</span></dt>
+                <dd>
+                    <div *ngIf="mark.board">
+                        <a [routerLink]="['/board', mark.board?.id, 'view']">{{mark.board?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span>Player</span></dt>
+                <dd>
+                    <div *ngIf="mark.player">
+                        <a [routerLink]="['/player', mark.player?.id, 'view']">{{mark.player?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/mark', mark.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
